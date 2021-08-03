@@ -49,6 +49,7 @@ public class SwiftAppodealFlutterPlugin: NSObject, FlutterPlugin {
 
         // Registering callbacks
         setCallbacks()
+        
 
         let ads = AppodealAdType(rawValue: adTypes.reduce(0) { $0 | getAdType(adId: $1).rawValue })
         Appodeal.setTestingEnabled(testMode)
@@ -194,7 +195,8 @@ public class SwiftAppodealFlutterPlugin: NSObject, FlutterPlugin {
         case 2: return .nativeAd
         case 3: return .interstitial
         case 4: return .rewardedVideo
-        case 5: return .nonSkippableVideo
+        case 5: return .MREC
+        case 6: return .nonSkippableVideo
         default: return AppodealAdType(rawValue: 0)
         }
     }

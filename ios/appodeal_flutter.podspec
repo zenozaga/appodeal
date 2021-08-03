@@ -19,25 +19,8 @@ A Flutter plugin to display ads from Appodeal; it supports the new reqs for iOS 
   s.static_framework = true
 
   # Appodeal Dependencies
-  s.dependency 'APDAdColonyAdapter', '2.10.1.1'
-  s.dependency 'APDAmazonAdsAdapter', '2.10.1.1'
-  s.dependency 'APDAppLovinAdapter', '2.10.1.2'
-  s.dependency 'APDBidMachineAdapter', '2.10.1.2'
-  s.dependency 'APDChartboostAdapter', '2.10.1.1'
-  s.dependency 'APDFacebookAudienceAdapter', '2.10.1.1'
-  s.dependency 'APDGoogleAdMobAdapter', '2.10.1.1'
-  s.dependency 'APDInMobiAdapter', '2.10.1.1'
-  s.dependency 'APDIronSourceAdapter', '2.10.1.2'
-  s.dependency 'APDMintegralAdapter', '2.10.1.1'
-  s.dependency 'APDMyTargetAdapter', '2.10.1.2'
-  s.dependency 'APDOguryAdapter', '2.10.1.1'
-  s.dependency 'APDSmaatoAdapter', '2.10.1.1'
-  s.dependency 'APDStartAppAdapter', '2.10.1.2'
-  s.dependency 'APDTapjoyAdapter', '2.10.1.1'
-  s.dependency 'APDTwitterMoPubAdapter', '2.10.1.1'
-  s.dependency 'APDUnityAdapter', '2.10.1.1'
-  s.dependency 'APDVungleAdapter', '2.10.1.1'
-  s.dependency 'APDYandexAdapter', '2.10.1.1'
+  s.dependency 'Appodeal' 
+  
 
   # Consent Manager Dependency
   s.dependency 'StackConsentManager', '1.0.1'

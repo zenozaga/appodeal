@@ -18,15 +18,22 @@ class AppodealBannerFactory: NSObject, FlutterPlatformViewFactory {
 
     func create(withFrame _: CGRect, viewIdentifier _: Int64, arguments args: Any?) -> FlutterPlatformView {
         var placementName: String?
+        var height: Int?
+        
+        
         if let argsDict = args as? [String: Any] {
+            
             placementName = argsDict["placementName"] as? String
+            height = argsDict["height"] as? Int;
+            
         }
 
-        return AppodealBannerView(instance: instance, placementName: placementName)
+ 
+        return AppodealBannerView(instance: instance, placementName: placementName, height: height ?? 50)
     }
 
     public func createArgsCodec() -> FlutterMessageCodec & NSObjectProtocol {
-        FlutterStandardMessageCodec.sharedInstance()
+        return FlutterStandardMessageCodec.sharedInstance()
     }
 
     // MARK: - AppodealBannerView
@@ -34,20 +41,35 @@ class AppodealBannerFactory: NSObject, FlutterPlatformViewFactory {
     class AppodealBannerView: NSObject, FlutterPlatformView {
         var instance: SwiftAppodealFlutterPlugin
         var placementName: String?
+        var height: Int!
 
-        init(instance: SwiftAppodealFlutterPlugin, placementName: String?) {
+        init(instance: SwiftAppodealFlutterPlugin,
+             placementName: String?, height: Int) {
             self.instance = instance
             self.placementName = placementName
+            self.height = height
         }
 
         func view() -> UIView {
-            let banner = APDBannerView()
+            
+            var banner = APDBannerView()
+            banner.adSize = kAPDAdSize320x50;
+                        
+            var rec: CGRect = CGRect(x: 0, y: 0, width: 320, height: 50);
+            
+            if(height >= 250){
+                banner = APDMRECView()
+                banner.adSize = kAPDAdSize300x250
+                rec = CGRect(x: 0, y: 0, width: 300, height: 250)
+            };
+            
             banner.delegate = instance
             banner.placement = placementName
-            banner.frame = CGRect(x: 0, y: 0, width: 320, height: 50)
+            banner.frame = rec
             banner.loadAd()
 
             return banner
+            
         }
     }
 }
